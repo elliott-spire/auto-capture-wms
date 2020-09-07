@@ -188,6 +188,8 @@ if __name__ == "__main__":
     token = sys.argv[1]
     # get today's date in YYYYmmdd format
     today = datetime.now().strftime("%Y%m%d")
+    # set the preferred forecast issuance time
+    issuance = "00"
     # set the bounding box
     bbox = [-180, 180, -90, 90]
     # set the bundle
@@ -196,7 +198,7 @@ if __name__ == "__main__":
     cfg1 = {"name": "gust:ms", "style": "/nearest"}
     cfg2 = {"name": "sfcwind:ms", "style": "-contours-bk/nearestcontour"}
     # get the WMS metadata
-    layers = get_layer_metadata(token, bundle, today, "00", cfg1, cfg2)
+    layers = get_layer_metadata(token, bundle, today, issuance, cfg1, cfg2)
     # request and build the WMS composite images
     visualize(token, bbox, layers[0], layers[1])
     # print out how long this script run took
