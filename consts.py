@@ -1,5 +1,11 @@
-BASIC_LAYERS = [
-    "t2m:K",
+# The full list of layers and styles can be requested with one of the following:
+# https://api.wx.spire.com/ows/wms?service=WMS&request=GetCapabilities&product=sof-d&bundle=basic
+# https://api.wx.spire.com/ows/wms?service=WMS&request=GetCapabilities&product=sof-d&bundle=maritime
+# https://api.wx.spire.com/ows/wms?service=WMS&request=GetCapabilities&product=sof-d&bundle=maritime-wave
+# https://api.wx.spire.com/ows/wms?service=WMS&request=GetCapabilities&product=sof-d&bundle=precipitation
+
+BASIC_LAYERS = {
+    "t2m:K",  # temp
     "t2m:C",
     "t2m:F",
     "2d:K",
@@ -22,7 +28,11 @@ BASIC_LAYERS = [
     "t2mmax:K",
     "t2mmax:C",
     "t2mmax:F",
-]
+    "Total Cloud Cover (%)": {
+        "layer": "tcc",
+        "style": "cc"
+    }
+}
 
 MARITIME_LAYERS = [
     "wvdir",
